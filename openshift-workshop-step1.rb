@@ -201,23 +201,6 @@ otnode3 << { ip: '5.9.29.135',
               public_keys: '~/.ssh/id_rsa.pub', # will be copied to your system
               post_install: post_install }      # will be executed *locally* at the end
 
-# osnode4 << { ip: '94.130.51.32',
-#               template: template,               # string will be parsed by erubis
-#               hostname: 'osnode4',              # sets hostname
-#               public_keys: '~/.ssh/id_rsa.pub', # will be copied to your system
-#               post_install: post_install }      # will be executed *locally* at the end
-
-# osnode5 << { ip: '46.4.100.99',
-#               template: template,  # string will be parsed by erubis
-#               hostname: 'osnode5',              # sets hostname
-#               public_keys: '~/.ssh/id_rsa.pub', # will be copied to your system
-#               post_install: post_install }      # will be executed *locally* at the end
-
-# osnode6 << { ip: '78.46.43.73',
-#               template: template,  # string will be parsed by erubis
-#               hostname: 'osnode6',              # sets hostname
-#               public_keys: '~/.ssh/id_rsa.pub', # will be copied to your system
-#               post_install: post_install }      # will be executed *locally* at the end
 
 t1 = Thread.new do
   otmaster.bootstrap!
@@ -235,23 +218,8 @@ t4 = Thread.new do
   otnode3.bootstrap!
 end
 
-# t5= Thread.new do
-#   osnode4.bootstrap!
-# end
-
-# t6 = Thread.new do
-#   osnode5.bootstrap!
-# end
-
-# t7 = Thread.new do
-#   osnode6.bootstrap!
-# end
-
 
 t1.join
 t2.join
 t3.join
 t4.join
-# t5.join
-# t6.join
-# t7.join
